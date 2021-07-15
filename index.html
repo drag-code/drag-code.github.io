@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- METADATA FOR PWA -->
+		<!-- ALLOWS TO MODIFY TOP COLOR FOR ANDROID-->
+		<meta name="theme-color" content="#000" />
+		<meta name="MobileOptimized" content="width" />
+		<meta name="HandheldFriendly" content="true" />
+
+		<!-- ALLOWS TO MODIFY TOP COLOR FOR IOS-->
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent"
+		/>
+
+		<title>Vue Counter App</title>
+
+		<!-- SETTING UP THE FAVICON AND THE ICON FOR SPLASH SCREEN-->
+		<link rel="shortcut icon" href="./img/favicon.png" type="image/png" />
+		<link rel="apple-touch-icon" href="./img/favicon.png" />
+		<link rel="apple-touch-startup-image" href="./img/favicon.png" />
+
+		<!-- MANIFEST REFERENCE-->
+		<link rel="manifest" href="./manifest.json">
+
+		<link rel="stylesheet" href="./css/normalize.css" />
+		<link rel="stylesheet" href="./css/styles.css" />
+		<script src="https://unpkg.com/vue@next" defer></script>
+		<script src="./js/app.js" defer></script>
+		<script src="./js/load.js" defer></script>
+	</head>
+	<body>
+		<div id="app" class="container">
+			<div class="counter">
+				<button
+					type="button"
+					class="btn cursor-pointer bg-primary text-white text-lg"
+					@click="decrement(2)"
+				>
+					-
+				</button>
+				<p class="text-bold text-lg">{{count}}</p>
+				<button
+					type="button"
+					class="btn cursor-pointer bg-primary text-white text-lg"
+					@click="increment(2)"
+				>
+					+
+				</button>
+			</div>
+			<div class="controls">
+				<div class="form-group">
+					<label for="increment">Ingrese el valor de incremento</label>
+					<input
+						class="text-center"
+						id="increment"
+						type="number"
+						:value="incrementStep"
+						@input="setStep('increment', $event.target.value)"
+						placeholder="Valor de incremento"
+						min="1"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="decrement">Ingrese el valor de decremento</label>
+					<input
+						class="text-center"
+						id="decrement"
+						type="number"
+						:value="decrementStep"
+						@input="setStep('decrement', $event.target.value)"
+						placeholder="Valor de decremento"
+						min="1"
+					/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
